@@ -1,8 +1,9 @@
 import express, { NextFunction, Request, Response } from "express"
+import { PORT } from "./config/config.service"
 
 const app = express()
 
-const port = process.env.PORT || 3000
+const port = PORT
 
 export const bootstrap = () => {
 
