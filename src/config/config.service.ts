@@ -9,3 +9,5 @@ config({
 })
 
 export const PORT :number = Number(process.env.PORT)
+export const LOCAL_URI_DB :string = process.env.LOCAL_URI_DB!
+export const DB_URI_ONLINE :string = process.env.DB_URI_ONLINE!
