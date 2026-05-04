@@ -3,6 +3,8 @@ import { AppError, globalErrorHandler } from "./common/utils/error.global.handle
 import { successResponse } from "./common/utils/success.Responsive"
 import { PORT } from "./config/config.service"
 import { checkConnectionDB } from "./DB/connectionDB"
+import authRouter from "./modules/auth/auth.controller"
+import userRouter from "./modules/user/user.controller"
 
 const app = express()
 
@@ -17,6 +19,9 @@ export const bootstrap = () => {
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
         successResponse({ res, message: "Welcome to the Bank System..." })
     })
+
+    app.use("/auth", authRouter)
+    app.use("/user", userRouter)
 
     app.use("{/*demo}", (req: Request, res: Response, next: NextFunction) => {
         throw new AppError(`404 ${req.method} ${req.url} Not Found...`, 404)
