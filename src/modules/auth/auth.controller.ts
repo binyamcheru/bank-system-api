@@ -10,6 +10,14 @@ authRouter.post("/register",Validation(UV.signupSchema),authService.signUP)
 
 authRouter.post("/login",Validation(UV.signinSchema),authService.signIN)
 
+authRouter.post("/confirm-email",Validation(UV.confirmEmailSchema),authService.confirmEmail)
+
+authRouter.post("/resend-otp",Validation(UV.resendOtpSchema),authService.resendOtp)
+
+authRouter.post("/forget-password",Validation(UV.forgetPasswordSchema),authService.forgetPassword)
+
+authRouter.post("/reset-password",Validation(UV.resetPasswordSchema),authService.resetPassword)
+
 authRouter.post("/refresh-token",authService.refreshToken)
 
 authRouter.post("/logout",Authentication,authService.logOut)

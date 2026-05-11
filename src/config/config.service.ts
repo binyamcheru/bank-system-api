@@ -17,3 +17,5 @@ export const PREFIX :string = process.env.PREFIX!
 export const REFRESH_TOKEN_KEY :string = process.env.REFRESH_TOKEN_KEY!
 export const ACCESS_TOKEN_EXPIRY :string = process.env.ACCESS_TOKEN_EXPIRY!
 export const REFRESH_TOKEN_EXPIRY :string = process.env.REFRESH_TOKEN_EXPIRY!
+export const EMAIL :string = process.env.EMAIL!
+export const PASSWORD :string = process.env.PASSWORD!
