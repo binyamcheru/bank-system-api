@@ -8,6 +8,8 @@ const authRouter = Router({strict:true})
 
 authRouter.post("/register",Validation(UV.signupSchema),authService.signUP)
 
+authRouter.post("/signup/gmail",authService.SignUpWithGmail)
+
 authRouter.post("/login",Validation(UV.signinSchema),authService.signIN)
 
 authRouter.post("/confirm-email",Validation(UV.confirmEmailSchema),authService.confirmEmail)
@@ -23,4 +25,5 @@ authRouter.post("/refresh-token",authService.refreshToken)
 authRouter.post("/logout",Authentication,authService.logOut)
 
 
-export default authRouter
+
+export default authRouter 

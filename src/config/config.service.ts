@@ -19,3 +19,4 @@ export const ACCESS_TOKEN_EXPIRY :string = process.env.ACCESS_TOKEN_EXPIRY!
 export const REFRESH_TOKEN_EXPIRY :string = process.env.REFRESH_TOKEN_EXPIRY!
 export const EMAIL :string = process.env.EMAIL!
 export const PASSWORD :string = process.env.PASSWORD!
+export const CLIENT_ID :string = process.env.CLIENT_ID!
