@@ -5,6 +5,7 @@ import { PORT } from "./config/config.service"
 import { checkConnectionDB } from "./DB/connectionDB"
 import authRouter from "./modules/auth/auth.controller"
 import accountRouter from "./modules/account/account.controller"
+import creditCardRouter from "./modules/card/card.controller"
 import userRouter from "./modules/user/user.controller"
 
 const app = express()
@@ -24,6 +25,7 @@ export const bootstrap = () => {
     app.use("/auth", authRouter)
     app.use("/user", userRouter)
     app.use("/account", accountRouter)
+    app.use("/card", creditCardRouter)
 
     app.use("{/*demo}", (req: Request, res: Response, next: NextFunction) => {
         throw new AppError(`404 ${req.method} ${req.url} Not Found...`, 404)
