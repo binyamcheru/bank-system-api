@@ -6,6 +6,7 @@ import { checkConnectionDB } from "./DB/connectionDB"
 import authRouter from "./modules/auth/auth.controller"
 import accountRouter from "./modules/account/account.controller"
 import transactionRouter from "./modules/transaction/transaction.controller"
+import beneficiaryRouter from "./modules/beneficiary/beneficiary.controller"
 import creditCardRouter from "./modules/card/card.controller"
 import userRouter from "./modules/user/user.controller"
 
@@ -27,6 +28,7 @@ export const bootstrap = () => {
     app.use("/user", userRouter)
     app.use("/account", accountRouter)
     app.use("/transaction", transactionRouter)
+    app.use("/beneficiary", beneficiaryRouter)
     app.use("/card", creditCardRouter)
 
     app.use("{/*demo}", (req: Request, res: Response, next: NextFunction) => {
