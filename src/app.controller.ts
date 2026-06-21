@@ -9,6 +9,7 @@ import transactionRouter from "./modules/transaction/transaction.controller"
 import beneficiaryRouter from "./modules/beneficiary/beneficiary.controller"
 import creditCardRouter from "./modules/card/card.controller"
 import userRouter from "./modules/user/user.controller"
+import redisService from "./common/service/redis.service"
 
 const app = express()
 
@@ -19,6 +20,8 @@ export const bootstrap = () => {
     app.use(express.json())
 
     checkConnectionDB()
+
+    redisService.connect()
 
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
         successResponse({ res, message: "Welcome to the Bank System..." })
