@@ -10,6 +10,7 @@ import beneficiaryRouter from "./modules/beneficiary/beneficiary.controller"
 import creditCardRouter from "./modules/card/card.controller"
 import userRouter from "./modules/user/user.controller"
 import redisService from "./common/service/redis.service"
+import adminRouter from "./modules/admin/admin.controller"
 
 const app = express()
 
@@ -33,6 +34,7 @@ export const bootstrap = () => {
     app.use("/transaction", transactionRouter)
     app.use("/beneficiary", beneficiaryRouter)
     app.use("/card", creditCardRouter)
+    app.use("/admin", adminRouter)
 
     app.use("{/*demo}", (req: Request, res: Response, next: NextFunction) => {
         throw new AppError(`404 ${req.method} ${req.url} Not Found...`, 404)
