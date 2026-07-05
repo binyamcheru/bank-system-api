@@ -21,3 +21,4 @@ export const EMAIL :string = process.env.EMAIL!
 export const PASSWORD :string = process.env.PASSWORD!
 export const CLIENT_ID :string = process.env.CLIENT_ID!
 export const REDIS_URL :string = process.env.REDIS_URL!
+export const WHITE_LIST = process.env.WHITE_LIST? process.env.WHITE_LIST.split(","):[]
