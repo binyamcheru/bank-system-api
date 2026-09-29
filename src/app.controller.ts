@@ -2,7 +2,6 @@ import express, { NextFunction, Request, Response } from "express"
 import cors from "cors"
 import helmet from "helmet"
 import rateLimit from "express-rate-limit"
-import mongoSanitize from "express-mongo-sanitize"
 import { AppError, globalErrorHandler } from "./common/utils/error.global.handler"
 import { successResponse } from "./common/utils/success.Responsive"
 import { PORT ,WHITE_LIST } from "./config/config.service"
@@ -15,6 +14,9 @@ import creditCardRouter from "./modules/card/card.controller"
 import userRouter from "./modules/user/user.controller"
 import redisService from "./common/service/redis.service"
 import adminRouter from "./modules/admin/admin.controller"
+import mongoSanitize from "express-mongo-sanitize"
+import swaggerUi from "swagger-ui-express"
+import { swaggerSpec } from "./config/swagger.config"
 
 // express-mongo-sanitize v2 reassigns req.query, which has no setter in Express 5; sanitize in place instead.
 const sanitizeRequest = (req: Request, res: Response, next: NextFunction) => {
@@ -60,6 +62,11 @@ export const bootstrap = () => {
 
     app.get("/", (req: Request, res: Response, next: NextFunction) => {
         successResponse({ res, message: "Welcome to the Bank System..." })
+    })
+
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+    app.get("/api-docs.json", (req: Request, res: Response) => {
+        res.json(swaggerSpec)
     })
 
     app.use("/auth", authRouter)
