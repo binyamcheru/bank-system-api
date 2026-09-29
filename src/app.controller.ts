@@ -16,6 +16,14 @@ import userRouter from "./modules/user/user.controller"
 import redisService from "./common/service/redis.service"
 import adminRouter from "./modules/admin/admin.controller"
 
+// express-mongo-sanitize v2 reassigns req.query, which has no setter in Express 5; sanitize in place instead.
+const sanitizeRequest = (req: Request, res: Response, next: NextFunction) => {
+    if (req.body) mongoSanitize.sanitize(req.body)
+    if (req.params) mongoSanitize.sanitize(req.params)
+    if (req.query) mongoSanitize.sanitize(req.query)
+    next()
+}
+
 const app = express()
 
 const port = PORT
@@ -44,7 +52,7 @@ export const bootstrap = () => {
         credentials: true
     }
 
-    app.use(express.json(), cors(corsOptions), helmet(), limiter, mongoSanitize())
+    app.use(express.json(), cors(corsOptions), helmet(), limiter, sanitizeRequest)
 
     checkConnectionDB()
 
