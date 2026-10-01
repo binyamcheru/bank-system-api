@@ -64,7 +64,8 @@ const userSchema = new mongoose.Schema<IUser>({
     timestamps:true,
     strict:true,
     strictQuery:true,
-    toJSON:{virtuals:true},
+    // select:false only hides password on queries, not on docs returned by create()/save() - strip it on every serialization
+    toJSON:{virtuals:true, transform:(_doc, ret:any) => { delete ret.password; return ret }},
     toObject:{virtuals:true}
 })
 
