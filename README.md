@@ -6,7 +6,12 @@ A production-grade RESTful banking API built with **Node.js**, **TypeScript**, *
 
 ## 📸 Screenshots
 
-> _Coming soon._
+Swagger UI (`/api-docs`) showing the full API surface:
+
+| Auth & root | User / Account / Card | Beneficiary & Admin |
+|---|---|---|
+| ![Swagger - Auth](./screenshots/Screenshot%20From%202026-10-01%2008-18-25.png) | ![Swagger - User/Account/Card](./screenshots/Screenshot%20From%202026-10-01%2008-18-32.png) | ![Swagger - Beneficiary/Admin](./screenshots/Screenshot%20From%202026-10-01%2008-18-38.png) |
+
 
 ---
 
