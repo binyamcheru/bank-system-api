@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development tsc && concurrently \"cross-env NODE_ENV=development tsc --watch\" \"cross-env NODE_ENV=development nodemon dist/index.js\"",
-    "start:prod": "cross-env NODE_ENV=production tsc && concurrently \"cross-env NODE_ENV=production tsc --watch\" \"cross-env NODE_ENV=production nodemon dist/index.js\""
+    "start:prod": "cross-env NODE_ENV=production tsc && concurrently \"cross-env NODE_ENV=production tsc --watch\" \"cross-env NODE_ENV=production nodemon dist/index.js\"",
+    "build": "tsc",
+    "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "keywords": [],
   "author": "",
