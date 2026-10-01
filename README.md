@@ -2,6 +2,9 @@
 
 A production-grade RESTful banking API built with **Node.js**, **TypeScript**, **Express 5**, and **MongoDB**. Supports user registration with email OTP verification, Google sign-in, JWT authentication with refresh tokens, bank account management, credit cards, deposits/withdrawals, atomic transfers, beneficiaries, an admin panel, and interactive Swagger API docs.
 
+🔗 **Live API docs:** [bank-system-api-nm3l.onrender.com/api-docs](https://bank-system-api-nm3l.onrender.com/api-docs/)
+> Hosted on Render's free tier — the instance spins down after inactivity, so the first request may take ~30-60s to wake it up.
+
 ---
 
 ## 📸 Screenshots
@@ -98,7 +101,7 @@ The server starts on the port defined in your `.env` file (default `3000`).
 
 Interactive Swagger docs are served once the app is running:
 
-- **Swagger UI:** `GET /api-docs`
+- **Swagger UI:** `GET /api-docs` ([live demo](https://bank-system-api-nm3l.onrender.com/api-docs/))
 - **OpenAPI JSON:** `GET /api-docs.json`
 
 ### Postman Collection
