@@ -46,7 +46,7 @@ Swagger UI (`/api-docs`) showing the full API surface:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/bank-system-api.git
+git clone https://github.com/binyamcheru/bank-system-api.git
 cd bank-system-api
 ```
 
