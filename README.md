@@ -96,7 +96,33 @@ Interactive Swagger docs are served once the app is running:
 - **Swagger UI:** `GET /api-docs`
 - **OpenAPI JSON:** `GET /api-docs.json`
 
-A ready-to-import Postman collection is also included at [`Bank System.postman_collection.json`](./Bank%20System.postman_collection.json).
+### Postman Collection
+
+Import [`Bank System.postman_collection.json`](./Bank%20System.postman_collection.json) directly into Postman (File → Import) to get every endpoint ready to run. The collection ships with its own variables (`local_host`, `prefix`, `access_token`, `refresh_token`) — no separate environment needed, and `log in` auto-fills the tokens for every other request.
+
+The collection is organized into one folder per module, mirroring the route structure:
+
+```
+Bank System/
+├── Auth/                 # register, signup/gmail, login, confirm-email,
+│                         # resend-otp, forget-password, reset-password,
+│                         # refresh-token, logout
+├── user/                 # get profile, get accounts, update-info,
+│                         # update-password, delete account
+├── account/              # create, get, status (statement)
+├── card/                 # add, get all, set default, delete
+├── transaction/          # deposit, withdraw, transfer, my, my/summary,
+│                         # get by id
+├── Beneficiary/          # add, get all, delete
+└── Admin/
+    ├── user/             # list, get, block, unblock, delete
+    ├── account/          # list, block, unblock
+    ├── cards/            # list, block
+    ├── transaction/      # list
+    └── dashBoard/        # stats
+```
+
+Each folder's requests run in the order shown above, and `log in` auto-saves `access_token` / `refresh_token` into the Postman environment so subsequent requests in the collection stay authenticated.
 
 ---
 
